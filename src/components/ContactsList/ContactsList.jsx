@@ -30,42 +30,46 @@ const ContactsList = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {!error && contacts.length > 0 && (
+            <List>
+              {filteredContacts.map(({ id, name, number }) => {
+                return (
+                  <Item key={id}>
+                    <ContactValue>
+                      {name}
+                      <span>{number}</span>
+                    </ContactValue>
+                    <Button type="button" onClick={() => onDeleteBtnClick(id)}>
+                      Delete
+                    </Button>
+                  </Item>
+                );
+              })}
+            </List>
+          )}
 
-      {!error && !isLoading && contacts.length > 0 && (
-        <List>
-          {filteredContacts.map(({ id, name, number }) => {
-            return (
-              <Item key={id}>
-                <ContactValue>
-                  {name}
-                  <span>{number}</span>
-                </ContactValue>
-                <Button type="button" onClick={() => onDeleteBtnClick(id)}>
-                  Delete
-                </Button>
-              </Item>
-            );
-          })}
-        </List>
-      )}
+          {!error && contacts.length === 0 && (
+            <div>Your phone book is empty!</div>
+          )}
 
-      {error && !isLoading && (
-        <div>
-          Something went wrong. <br />
-          Please try again later/
-        </div>
-      )}
+          {filter && filteredContacts.length === 0 && (
+            <div>
+              No contacts found! <br /> Please change your search parameters and
+              try again.
+            </div>
+          )}
 
-      {!error && !isLoading && contacts.length === 0 && (
-        <div>Your phone book is empty!</div>
-      )}
-
-      {filter && !isLoading && filteredContacts.length === 0 && (
-        <div>
-          No contacts found! <br /> Please change your search parameters and try
-          again.
-        </div>
+          {error && (
+            <div>
+              Something went wrong. <br />
+              Please try again later.
+            </div>
+          )}
+        </>
       )}
     </>
   );
