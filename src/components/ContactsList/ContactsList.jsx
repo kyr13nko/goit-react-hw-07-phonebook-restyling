@@ -35,21 +35,27 @@ const ContactsList = () => {
       ) : (
         <>
           {!error && contacts.length > 0 && (
-            <List>
-              {filteredContacts.map(({ id, name, number }) => {
-                return (
-                  <Item key={id}>
-                    <ContactValue>
-                      {name}
-                      <span>{number}</span>
-                    </ContactValue>
-                    <Button type="button" onClick={() => onDeleteBtnClick(id)}>
-                      Delete
-                    </Button>
-                  </Item>
-                );
-              })}
-            </List>
+            <>
+              <h2>Contacts:</h2>
+              <List>
+                {filteredContacts.map(({ id, name, number }) => {
+                  return (
+                    <Item key={id}>
+                      <ContactValue>
+                        {name}
+                        <span>{number}</span>
+                      </ContactValue>
+                      <Button
+                        type="button"
+                        onClick={() => onDeleteBtnClick(id)}
+                      >
+                        Delete
+                      </Button>
+                    </Item>
+                  );
+                })}
+              </List>
+            </>
           )}
 
           {!error && contacts.length === 0 && (

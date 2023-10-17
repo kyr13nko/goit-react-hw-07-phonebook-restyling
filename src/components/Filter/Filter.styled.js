@@ -11,9 +11,14 @@ export const Label = styled.label`
 export const Input = styled.input`
   height: 20px;
 
-  border: none;
+  border: 1px solid white;
   outline: none;
 
-  box-shadow: rgb(84, 76, 122) 2px -2px 0px 2px,
-    rgb(57, 95, 58) -2px 2px 0px 2px;
+  box-shadow: rgb(84, 76, 122) 1px -1px 0px 1px,
+    rgb(57, 95, 58) -1px 1px 0px 1px;
+
+  &:hover,
+  &:focus {
+    border: 1px solid black;
+  }
 `;

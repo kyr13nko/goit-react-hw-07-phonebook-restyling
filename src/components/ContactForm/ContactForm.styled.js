@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 8px;
 `;
 
@@ -11,17 +12,23 @@ export const Label = styled.label`
   flex-direction: column;
   gap: 4px;
 
+  width: 100%;
   font-size: 12px;
 `;
 
 export const Input = styled.input`
   height: 20px;
 
-  border: none;
+  border: 1px solid white;
   outline: none;
 
-  box-shadow: rgb(84, 76, 122) 2px -2px 0px 2px,
-    rgb(57, 95, 58) -2px 2px 0px 2px;
+  box-shadow: rgb(84, 76, 122) 1px -1px 0px 1px,
+    rgb(57, 95, 58) -1px 1px 0px 1px;
+
+  &:hover,
+  &:focus {
+    border: 1px solid black;
+  }
 `;
 
 export const Button = styled.button`
@@ -35,12 +42,13 @@ export const Button = styled.button`
   outline: none;
 
   background-color: white;
-  box-shadow: rgb(84, 76, 122) 2px -2px 0px 2px,
-    rgb(57, 95, 58) -2px 2px 0px 2px;
+  box-shadow: rgb(84, 76, 122) 1px -1px 0px 1px,
+    rgb(57, 95, 58) -1px 1px 0px 1px;
   padding: 4px 16px;
   margin-top: 16px;
 
   &:hover {
-    background-color: rgba(128, 128, 128, 0.1);
+    color: white;
+    background: linear-gradient(to top right, #395f3a 0%, #544c7a 100%);
   }
 `;

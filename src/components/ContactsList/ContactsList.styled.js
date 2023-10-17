@@ -11,10 +11,10 @@ export const Item = styled.li`
   justify-content: space-between;
   gap: 20px;
 
-  border-bottom: 4px solid rgb(84, 76, 122);
+  border-bottom: 2px solid rgb(84, 76, 122);
 
   &:nth-child(2n) {
-    border-bottom: 4px solid rgb(57, 95, 58);
+    border-bottom: 2px solid rgb(57, 95, 58);
   }
 `;
 
@@ -34,11 +34,12 @@ export const Button = styled.button`
   outline: none;
 
   background-color: white;
-  box-shadow: rgb(84, 76, 122) 2px -2px 0px 2px,
-    rgb(57, 95, 58) -2px 2px 0px 2px;
+  box-shadow: rgb(84, 76, 122) 1px -1px 0px 1px,
+    rgb(57, 95, 58) -1px 1px 0px 1px;
   padding: 4px 16px;
 
   &:hover {
-    background-color: rgba(128, 128, 128, 0.1);
+    color: white;
+    background: linear-gradient(to top right, #395f3a 0%, #544c7a 100%);
   }
 `;
